@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>2024-03-15-fundraising-report.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .full-page {
+        width:  100%;
+        height:  100vh; /* This will make the div take up the full viewport height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .full-page img {
+        max-width:  200;
+        max-height:  200;
+        margin-bottom: 5rem;
+    }
+    .full-page div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+</head>
+<body>
+<div class="full-page">
+    <img src="./logo.png" alt="Logo">
+    <div>
+    <h1>Protocol Audit Report</h1>
+    <h3>Prepared by: juaaanmac</h3>
+    </div>
+</div>
+</body>
+</html>
+<!-- Your report starts here! -->
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#protocol-summary">Protocol Summary</a></li>
+<li><a href="#disclaimer">Disclaimer</a></li>
+<li><a href="#risk-classification">Risk Classification</a></li>
+<li><a href="#audit-details">Audit Details</a>
+<ul>
+<li><a href="#scope">Scope</a></li>
+<li><a href="#roles">Roles</a></li>
+</ul>
+</li>
+<li><a href="#executive-summary">Executive Summary</a>
+<ul>
+<li><a href="#issues-found">Issues found</a></li>
+</ul>
+</li>
+<li><a href="#findings">Findings</a></li>
+<li><a href="#high">High</a></li>
+<li><a href="#medium">Medium</a></li>
+<li><a href="#low">Low</a></li>
+<li><a href="#informational">Informational</a></li>
+<li><a href="#gas">Gas</a></li>
+</ul>
+<h1 id="protocol-summary">Protocol Summary</h1>
+<p>Protocol allows you to collect funds and withdraw them when you want</p>
+<h1 id="disclaimer">Disclaimer</h1>
+<p>The juaaanmac team makes all effort to find as many vulnerabilities in the code in the given time period, but holds no responsibilities for the findings provided in this document. A security audit by the team is not an endorsement of the underlying business or product. The audit was time-boxed and the review of the code was solely on the security aspects of the Solidity implementation of the contracts.</p>
+<h1 id="risk-classification">Risk Classification</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>Impact</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>High</td>
+<td>Medium</td>
+<td>Low</td>
+</tr>
+<tr>
+<td></td>
+<td>High</td>
+<td>H</td>
+<td>H/M</td>
+<td>M</td>
+</tr>
+<tr>
+<td>Likelihood</td>
+<td>Medium</td>
+<td>H/M</td>
+<td>M</td>
+<td>M/L</td>
+</tr>
+<tr>
+<td></td>
+<td>Low</td>
+<td>M</td>
+<td>M/L</td>
+<td>L</td>
+</tr>
+</tbody>
+</table>
+<p>We use the <a href="https://docs.codehawks.com/hawks-auditors/how-to-evaluate-a-finding-severity">CodeHawks</a> severity matrix to determine severity. See the documentation for more details.</p>
+<h1 id="audit-details">Audit Details</h1>
+<p><strong>The findings described in this document correspond the following commit hash:</strong></p>
+<pre class="hljs"><code><div>xxxxxxxxxxxx
+</div></code></pre>
+<h2 id="scope">Scope</h2>
+<pre class="hljs"><code><div>src/
+--- Fundraising.sol
+</div></code></pre>
+<h2 id="roles">Roles</h2>
+<ul>
+<li>Owner: user who want to collect funds and the only one who should withdraw funds.</li>
+<li>Contributors: users who contribute their funds to the fundraising.</li>
+</ul>
+<h1 id="executive-summary">Executive Summary</h1>
+<h2 id="issues-found">Issues found</h2>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Number of issues found</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Low</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Info</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Gas Optimizations</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h1 id="findings">Findings</h1>
+<h1 id="high">High</h1>
+<h3 id="h-1-fundraisingwithdraw-is-vulnerable-to-a-reentrancy-attack-an-untrusted-attackers-contract-can-drain-the-contracts-fund">[H-1] <code>Fundraising::withdraw</code> is vulnerable to a reentrancy attack, an untrusted attacker’s contract can drain the contract’s fund.</h3>
+<p><strong>Description</strong>
+A reentrancy attack happens when a function is externally invoked during its execution, allowing it to be run multiple times in a single transaction. This typically occurs when a contract calls another contract before it resolves its state.
+If an untrusted attacker’s contract contribute to the Fundraising and then call withdraw <code>Fundraising::withdraw</code>, it will be able to drain the contract’s fund.</p>
+<p><strong>Impact</strong>
+An untrusted attacker’s contract can drain the contract’s fund.</p>
+<p><strong>Proof of Concepts</strong>
+Apply https://solidity-by-example.org/hacks/re-entrancy/</p>
+<p><strong>Recommended mitigation</strong>
+Add a reentrancy guard or use the “Checks-Effects-Interactions” Pattern.</p>
+<h1 id="medium">Medium</h1>
+<h3 id="m-1-function-fundraisingsettitle-is-callable-by-anyone-so-any-user-can-change-the-fundraising-title">[M-1] Function <code>Fundraising::setTitle</code> is callable by anyone, so any user can change the fundraising title.</h3>
+<p><strong>Description:</strong> The <code>Fundraising::setTitle</code> function is set to be an <code>external</code> function, however the natspec of the function is <code>This function allows the owner to modify the title</code>, that is, only the owner should modify it.</p>
+<p><strong>Impact</strong>
+Anyone can set/change the password of the contract.</p>
+<p><strong>Proof of Concept:</strong></p>
+<p>Add the following to the <code>Fundraising.t.sol</code> test suite.</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test_anyone_can_set_title</span>(<span class="hljs-params">address randomAddress</span>) <span class="hljs-title">public</span> </span>{
+    vm.prank(randomAddress);
+    string memory expectedTitle = <span class="hljs-string">"newTitle"</span>;
+    fundraising.setTitle(expectedTitle);
+    vm.prank(owner);
+    string memory actualTitle = fundraising.getTitle();
+    assertEq(expectedTitle, actualTitle);
+}
+</div></code></pre>
+<p><strong>Recommended Mitigation:</strong> Add an access control modifier to the <code>setTitle</code> function. You can you <code>Fundraising::onlyOwner</code> modifier.</p>
+<h1 id="gas">Gas</h1>
+<h3 id="g-1-data-location-memory-instead-of-calldata-for-parameter-title-in-function-fundraisingsettitle-increases-gas-cost">[G-1] Data location <code>memory</code> instead of <code>calldata</code> for parameter <code>title_</code> in function <code>Fundraising::setTitle</code> increases gas-cost</h3>
+<p><strong>Description:</strong> <code>memory</code> is used to hold temporary variables during function execution, while <code>calldata</code> is used to hold function arguments passed in from an external caller. Calldata is read-only and cannot be modified by the function, while Memory can be modified. The parameter <code>title_</code> in <code>Fundraising::setTitle</code> is not modified. so you can use <code>calldata</code> to save gas.</p>
+<p><strong>Impact</strong>
+Data location <code>memory</code> increase gas-cost.</p>
+<p><strong>Proof of Concept:</strong></p>
+<p>In a new terminal, run:</p>
+<pre class="hljs"><code><div>forge test --gas-report
+</div></code></pre>
+<p>Change data location for <code>title_</code> in <code>Fundraising::setTitle</code> to <code>calldata</code></p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setTitle</span>(<span class="hljs-params">string calldata title_</span>) <span class="hljs-title">external</span></span>{
+    title = title_;
+}
+</div></code></pre>
+<p>Run again:</p>
+<pre class="hljs"><code><div>forge test --gas-report
+</div></code></pre>
+<p>Compare the previous report with the last one</p>
+<p><strong>Recommended Mitigation:</strong> Change data location for <code>title_</code> in <code>Fundraising::setTitle</code> to <code>calldata</code>.</p>
+<h3 id="g-2-the-order-of-the-state-variables-of-fundraising-is-not-optimal-resulting-in-an-increase-in-gas-cost">[G-2] The order of the state variables of <code>Fundraising</code> is not optimal, resulting in an increase in gas-cost</h3>
+<p><strong>Description:</strong> When you define the state variables for your contract, you can store more information in the same amount of storage space, reducing the amount of gas required for deployment. To achieve tight variable packing, you need to pay attention to the order and size of your variables. For example, larger variables should be placed before smaller ones.</p>
+<p><strong>Impact</strong>
+The order of the state variables in <code>Fundraising</code> increase gas-cost.</p>
+<p><strong>Proof of Concept:</strong></p>
+<p>In a terminal, run:</p>
+<pre class="hljs"><code><div>anvil -m 'test test test test test test test test test test test junk' --steps-tracing --block-time 1
+</div></code></pre>
+<p>In a new terminal, run this command to deploy Fundrasing contract:</p>
+<pre class="hljs"><code><div>forge script script/DeployFundraising.s.sol:Fundraising --rpc-url <span class="hljs-string">'http://localhost:8545'</span> --private-key <span class="hljs-number">0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80</span> --broadcast
+</div></code></pre>
+<p>Get the address of the deployed contract (for example 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0) and run:</p>
+<pre class="hljs"><code><div>cast storage 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
+</div></code></pre>
+<p>You will see that the contract requires 4 slots.</p>
+<p>Now, change the order of the state variables as follows:</p>
+<pre class="hljs"><code><div>    address owner;
+    bool public finished;
+    string public title;
+    uint256 public amountCollected;
+    mapping(<span class="hljs-function"><span class="hljs-params">address</span> =&gt;</span> uint256) public contributions;
+</div></code></pre>
+<p>Deploy the contract again</p>
+<pre class="hljs"><code><div>forge script script/DeployFundraising.s.sol:Fundraising --rpc-url <span class="hljs-string">'http://localhost:8545'</span> --private-key <span class="hljs-number">0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80</span> --broadcast
+</div></code></pre>
+<p>Get the address of the deployed contract (for example 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9) and run:</p>
+<pre class="hljs"><code><div>cast storage 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9
+</div></code></pre>
+<p>Now, the contract requires only 3 slots.</p>
+<p><strong>Recommended Mitigation:</strong> Apply Tight Variable Packing pattern, reordering the state variables <code>title</code> and <code>finished</code>:</p>
+<pre class="hljs"><code><div>    address owner;
+    bool public finished;
+    string public title;
+    uint256 public amountCollected;
+    mapping(<span class="hljs-function"><span class="hljs-params">address</span> =&gt;</span> uint256) public contributions;
+</div></code></pre>
+<p>With this order, you only need 3 slots instead of 4.</p>
+
+</body>
+</html>
